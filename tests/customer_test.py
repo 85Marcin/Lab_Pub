@@ -22,7 +22,8 @@ class TestCustomer(unittest.TestCase):
     def test_customer_has_age(self):
         self.assertEqual(21, self.instance_of_customer.age)
 
-    def test_increase_drunkennes_level(self):
-        self.instance_of_customer.increase_drunkennes_level(self.instance_of_drink.alcohol_level)
-        self.assertEqual(3, self.instance_of_customer.drunkeness)
+    def test_increase_drunkenness_level(self):
+        self.instance_of_customer.increase_drunkenness_level(self.instance_of_drink.alcohol_level)
+        self.assertEqual(3, self.instance_of_customer.drunkenness)
         
+    

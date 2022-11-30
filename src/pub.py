@@ -16,5 +16,12 @@ class Pub:
         return False
 
     def sell_drink(self, customer, drink):
-        customer.remove_money_from_wallet(drink.price)
-        self.add_money_to_till(drink.price)
+        customer_drunk = self.check_drunkenness(customer)
+        if customer_drunk == False:
+            customer.remove_money_from_wallet(drink.price)
+            self.add_money_to_till(drink.price)
+
+    def check_drunkenness(self, customer):
+        if customer.drunkenness > 9:
+            return True
+        return False

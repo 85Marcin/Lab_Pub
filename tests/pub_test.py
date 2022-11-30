@@ -7,7 +7,7 @@ class TestPub(unittest.TestCase):
     def setUp(self):
         self.instance_of_pub = Pub("The flying bull", 200.00)
         self.instance_of_drink = Drink("Scotch Whisky", 10, 3)
-        self.instance_of_customer = Customer("Bob", 2000.00, 21, 0)
+        self.instance_of_customer = Customer("Bob", 2000.00, 21, 3)
        
 
     def test_pub_has_name(self):
@@ -30,7 +30,7 @@ class TestPub(unittest.TestCase):
         self.assertEqual(True, age)
        
     def test_customer_is_not_old_enough(self):
-        customer_2 = Customer("Carol Willing", 750, 15, 0)
+        customer_2 = Customer("Carol Willing", 750, 15, 10)
         age =  self.instance_of_pub.check_age(customer_2.age)
         self.assertEqual(False, age)
 
@@ -38,3 +38,15 @@ class TestPub(unittest.TestCase):
         self.instance_of_pub.sell_drink(self.instance_of_customer,self.instance_of_drink)
         self.assertEqual(1990.00, self.instance_of_customer.wallet)
         self.assertEqual(210.00, self.instance_of_pub.till)
+
+    def test_customer_too_drunk(self):
+        customer_2 = Customer("Carol Willing", 750, 15, 10)
+        drunkenness = self.instance_of_pub.check_drunkenness(customer_2)
+        self.assertEqual(True, drunkenness)
+
+    def test_customer_not_too_drunk(self):
+        drunkenness = self.instance_of_pub.check_drunkenness(self.instance_of_customer)
+        self.assertEqual(False, drunkenness)
+        
+    
+
