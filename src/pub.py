@@ -14,3 +14,7 @@ class Pub:
         if age >= 18:
             return True
         return False
+
+    def sell_drink(self, customer, drink):
+        customer.remove_money_from_wallet(drink.price)
+        self.add_money_to_till(drink.price)
