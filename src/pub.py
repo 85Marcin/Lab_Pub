@@ -10,14 +10,14 @@ class Pub:
     def add_money_to_till(self, amount):
         self.till += amount
 
-    def check_age(self, age):
-        if age >= 18:
+    def check_age(self, customer):
+        if customer.age >= 18:
             return True
         return False
 
     def sell_drink(self, customer, drink):
         customer_drunk = self.check_drunkenness(customer)
-        if customer_drunk == False:
+        if not customer_drunk :
             customer.remove_money_from_wallet(drink.price)
             self.add_money_to_till(drink.price)
 

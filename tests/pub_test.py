@@ -26,12 +26,12 @@ class TestPub(unittest.TestCase):
 
     def test_is_customer_old_enough(self):
         customer_1 = Customer("Guido van Rossum", 500, 64, 0)
-        age =  self.instance_of_pub.check_age(customer_1.age)
+        age =  self.instance_of_pub.check_age(customer_1)
         self.assertEqual(True, age)
        
     def test_customer_is_not_old_enough(self):
         customer_2 = Customer("Carol Willing", 750, 15, 10)
-        age =  self.instance_of_pub.check_age(customer_2.age)
+        age =  self.instance_of_pub.check_age(customer_2)
         self.assertEqual(False, age)
 
     def test_sell_drink(self):
